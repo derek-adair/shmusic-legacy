@@ -1,0 +1,45 @@
+version: "3.2"
+services:
+    schmusic-api:
+        container_name: schmusic-api
+        build: 
+            context: ./schmusic-api/
+            dockerfile: Dockerfile
+        volumes:
+            - ./schmusic-api/schmusic:/code
+        command: python ./manage.py runserver 0.0.0.0:80
+        expose:
+            - "80"
+        env_file: .env-api 
+        stdin_open: true
+        tty: true
+
+    schmusic-studio:
+        container_name: schmusic-studio
+        build:
+            context: ./schmusic-ui/
+            dockerfile: Dockerfile
+        env_file: .env-ui
+        volumes:
+            - "./schmusic-ui/studio:/usr/src/app"
+        expose: 
+            - "80"
+        environment:
+            - NODE_ENV=development
+                  #    hub:
+                  #        image: selenium/hub
+                  #        ports:
+                  #            - "4444:4444"
+                  #    firefox:
+                  #        image: selenium/node-firefox
+                  #        environment:
+                  #            - HUB_PORT_4444_TCP_ADDR=hub
+                  #            - HUB_PORT_4444_TCP_PORT=4444
+                  #
+                  #volumes:
+                  #    dev_packages:
+                  #        external: true
+networks:
+    default:
+        external:
+            name: webproxy
