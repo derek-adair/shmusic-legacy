@@ -1,0 +1,6 @@
+[submodule "schmusic-ui"]
+	path = schmusic-ui
+	url = git@gitlab.com:derek-adair/schmusic-ui.git
+[submodule "schmusic-api"]
+	path = schmusic-api
+	url = git@gitlab.com:derek-adair/schmusic-api.git
