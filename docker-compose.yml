@@ -22,6 +22,7 @@ services:
         env_file: .env-ui
         volumes:
             - "./schmusic-ui/studio:/usr/src/app"
+            - "/usr/src/app/node_modules"
         expose: 
             - "80"
         environment:
