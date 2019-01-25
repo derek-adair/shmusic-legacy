@@ -4,10 +4,10 @@ services:
         container_name: schmusic-api
         build: 
             context: ./schmusic-api/
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile.dev
         volumes:
             - ./schmusic-api/schmusic:/code
-        command: python ./schmusic/manage.py runserver 0.0.0.0:80
+        command: python ./manage.py runserver 0.0.0.0:80
         expose:
             - "80"
         env_file: .env-api 
