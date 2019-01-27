@@ -27,19 +27,16 @@ services:
             - "80"
         environment:
             - NODE_ENV=development
-                  #    hub:
-                  #        image: selenium/hub
-                  #        ports:
-                  #            - "4444:4444"
-                  #    firefox:
-                  #        image: selenium/node-firefox
-                  #        environment:
-                  #            - HUB_PORT_4444_TCP_ADDR=hub
-                  #            - HUB_PORT_4444_TCP_PORT=4444
-                  #
-                  #volumes:
-                  #    dev_packages:
-                  #        external: true
+    postgres:
+        container_name: postgres
+        restart: always
+        image: postgres:9.3
+        ports:
+            - "5432:5432"
+        volumes:
+            - /var/lib/postgresql/data/
+
+
 networks:
     default:
         external:
