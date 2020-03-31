@@ -4,3 +4,6 @@
 [submodule "schmusic-api"]
 	path = schmusic-api
 	url = git@gitlab.com:derek-adair/schmusic-api.git
+[submodule "schmusic-concert-data"]
+	path = schmusic-concert-data
+	url = git@gitlab.com:derek-adair/schmusic-concert-data.git
